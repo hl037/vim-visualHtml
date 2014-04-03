@@ -121,7 +121,7 @@ let s:settings = {
 
 function! s:init()
   for [key, val] in items(s:settings)
-      if !exists(s:script_path . '#' . key)
+      if !exists('g:' . s:script_path . '#' . key)
           exe 'let g:' . s:script_path . '#' . key . ' = ' . val
       endif
   endfor
