@@ -24,6 +24,12 @@ function! visualHtml#RefreshBrowser()
    endfor
 endfunction
 
+function! visualHtml#ExitBrowser()
+   for u in b:visualHtml.urllist
+      call b:visualHtml.Exit1Browser(u)
+   endfor
+endfunction
+
 
 
 function! visualHtml#SetupBuffer()
@@ -32,18 +38,25 @@ function! visualHtml#SetupBuffer()
       \ exists('g:visualHtml#Launch1Browser') ?
       \ g:visualHtml#Launch1Browser : 
       \ ('visualHtml#' . g:visualHtml#browser . '#Launch1Browser') )
-      
+   
    let b:visualHtml.Refresh1Browser = function(
       \ exists('g:visualHtml#Refresh1Browser') ?
       \ g:visualHtml#Refresh1Browser : 
       \ ('visualHtml#' . g:visualHtml#browser . '#Refresh1Browser') )
+   
+   let b:visualHtml.Exit1Browser = function(
+      \ exists('g:visualHtml#Exit1Browser') ?
+      \ g:visualHtml#Exit1Browser : 
+      \ ('visualHtml#' . g:visualHtml#browser . '#Exit1Browser') )
    
    let b:visualHtml.active = g:visualHtml#active
    let b:visualHtml.live = g:visualHtml#live
    
    let b:visualHtml.clcb = {}
    let b:visualHtml.clcb.geometry = g:visualHtml#clcb#geometry
-   
+endfunction
+
+function! visualHtml#Start()
    call visualHtml#SetActive(b:visualHtml.active)
 endfunction
 
@@ -58,6 +71,8 @@ function! visualHtml#SetActive(b)
             au CursorHold,CursorHoldI <buffer> w | call visualHtml#RefreshBrowser()
          endif
          au BufWritePost <buffer> call visualHtml#RefreshBrowser()
+         au BufUnload <buffer> call visualHtml#ExitBrowser()
+         call visualHtml#RefreshBrowser()
       endif
    augroup END
 endfunction

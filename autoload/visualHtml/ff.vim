@@ -2,7 +2,7 @@
 let s:script_path = 'visualHtml#ff'
 
 function! visualHtml#ff#Launch1Browser(url)
-   execute "silent !firefox " . a:url ." >/dev/null 2>&1 &"
+   execute "silent !\"".g:visualHtml#ff#exe."\" " . a:url ." >/dev/null 2>&1 &"
    redraw!
 endfunction
 
@@ -14,8 +14,12 @@ function! visualHtml#ff#Refresh1Browser(url)
    endif
 endfunction
 
+function! visualHtml#clcb#Exit1Browser(url)
+endfunction
+
 let s:settings = {
-    \ 'port': 32000
+   \ 'exe': "'firefox'",
+   \ 'port': 32000
 \ }
 
 function! s:init()

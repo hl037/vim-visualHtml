@@ -14,3 +14,5 @@ else
    let flist = filter(flist, 'file_readable(v:val)')
    let b:visualHtml.urllist = map(flist, 'visualHtml#GetUrl(v:val)')
 endif
+
+call visualHtml#Start()
