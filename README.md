@@ -12,11 +12,12 @@
 Table of content :
 ------------------
 
- 1. Introduction.............. ---> |visualHtml-introduction|
- 2. Installation.............. ---> |visualHtml-installation|
- 3. Settings.................. ---> |visualHtml-settings|
- 4. About..................... ---> |visualHtml-about|
- 5. Licence................... ---> |visualHtml-licence|
+ 1. Introduction
+ 2. Installation
+ 3. Settings
+ 4. CSS
+ 5. About
+ 6. Licence
  
 
 
@@ -104,7 +105,21 @@ let g:visualHtml#ff#port = 32000
 
 
 ===============================================================================
-# 4. About
+# 4. CSS
+-------------------------------------------------------------------------------
+
+CSS files are not directely viewable... But it could be usefull to see the
+effect on a HTML file in live...
+...It's possible! by default, the script looks for a file named
+yourcss.css.preview, this file should contain the paths (absolute or relative)
+to all the file you want to see while editing your style sheet. If no such
+file is found, the script will open all index.{php,htm,html} found in the
+directory.
+
+
+
+===============================================================================
+# 5. About
 -------------------------------------------------------------------------------
 
 My name is hl037 : hl are my initials, and 037 my first name reversed...
@@ -120,7 +135,7 @@ any suggestion or english correction to this help file is welcome !
 
 
 ===============================================================================
-# 5. Licence
+# 6. Licence
 -------------------------------------------------------------------------------
 
 I provide this plugin under the GPLv3 licence as almost all my open-source
