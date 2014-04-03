@@ -1,0 +1,26 @@
+
+let s:script_path = 'visualHtml#clcb'
+
+function! visualHtml#clcb#Launch1Browser(url)
+   let bufpath = expand('%:p')
+   execute "silent !clcbrowser " . a:url ." -t 'vim[" . getpid() ."]".'\%'.bufpath."' -g " . b:visualHtml.clcb.geometry . " >/dev/null 2>&1"
+   redraw!
+endfunction
+
+function! visualHtml#clcb#Refresh1Browser(url)
+   call visualHtml#clcb#Launch1Browser(a:url)
+endfunction
+
+let s:settings = {
+    \ 'geometry': "'683x741+683+0'"
+\ }
+
+function! s:init()
+  for [key, val] in items(s:settings)
+      if !exists(s:script_path . '#' . key)
+          exe 'let g:' . s:script_path . '#' . key . ' = ' . val
+      endif
+  endfor
+endfunction
+
+call s:init()
