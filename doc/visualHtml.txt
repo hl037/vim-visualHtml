@@ -70,7 +70,7 @@ let g:visualHtml#active = 1
    you to modify the variable per buffer
 
 
-*visualHtml#SetLiv()*                     visualHtml#SetcwLive(b)
+*visualHtml#SetLiv()*                     visualHtml#SetLive(b)
 *visualHtml#ToggleLive()*                 visualHtml#ToggleLive()
 *visualHtml#live*
 let g:visualHtml#live = 1

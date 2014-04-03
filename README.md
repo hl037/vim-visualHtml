@@ -45,26 +45,24 @@ There are some settings to customize the behavior.
 ## General settings
 
 
-let g:visualHtml#ftblacklist = ["markdown"]
+    let g:visualHtml#ftblacklist = ["markdown"]
 
    There are some ftplugins that load html ftplugin and open the browser of
    visualHtml for irrevelant files (like markdown...). Thus, this variable
    provide a way to blacklist some file types for which visualHtml will not be
    activated.
 
-visualHtml#SetActive(b)
-visualHtml#ToggleActive()
-
-let g:visualHtml#active = 1
+    visualHtml#SetActive(b)
+    visualHtml#ToggleActive()
+    let g:visualHtml#active = 1
 
    Controle if the plugin is active by default. SetActive and ToggleActive allow
    you to modify the variable per buffer
 
 
-visualHtml#SetcwLive(b)
-visualHtml#ToggleLive()
-
-let g:visualHtml#live = 1
+    visualHtml#SetLive(b)
+    visualHtml#ToggleLive()
+    let g:visualHtml#live = 1
 
    Controle if the plugin refresh the browser in live by default, that implies
    the buffer is automatically saved frequently.
@@ -72,19 +70,19 @@ let g:visualHtml#live = 1
 
 
 
-let g:visualHtml#serverRoot = "/srv/http"
+    let g:visualHtml#serverRoot = "/srv/http"
 
    Set the local server root directory.
 
 
 
-let g:visualHtml#serverRootUrl = "http://localhost"
+    let g:visualHtml#serverRootUrl = "http://localhost"
 
    Set the url correspounding to the server root
 
 
 
-let g:visualHtml#browser = "clcb"
+    let g:visualHtml#browser = "clcb"
 
    Set the browser to use. Currently, the only values possible are "clcb" for
    CLCBrowser, and "ff" for FireFox. To use FireFox, you need to be on linux,
@@ -96,14 +94,14 @@ let g:visualHtml#browser = "clcb"
 ## CLCBrowser settings
 
 
-let g:visualHtml#clcb#exe = "clcbrowser"
+    let g:visualHtml#clcb#exe = "clcbrowser"
 
    Set the command to launch clcbrowser. This permits a local installation of
    clcb. It is required to set the correct path on windows.
 
 
 
-let g:visualHtml#clcb#geometry = "683x741+683+0"
+    let g:visualHtml#clcb#geometry = "683x741+683+0"
 
    Set the geometry of the clcb window. You can keep this value to try, then
    position the window and copy paste the value from the CLCB's status bar to
@@ -114,14 +112,14 @@ let g:visualHtml#clcb#geometry = "683x741+683+0"
 ## FireFox settings
 
 
-let g:visualHtml#ff#exe = "firefox"
+    let g:visualHtml#ff#exe = "firefox"
 
    Set the command to launch firefox. This permits a local installation of
    firefox. It is required to set the correct path on windows.
 
 
 
-let g:visualHtml#ff#port = 32000
+    let g:visualHtml#ff#port = 32000
 
    Set the port used by the FireFox remote control pugin.
 
@@ -132,8 +130,8 @@ If you want another browser, this plugin is easily extendable : you just have
 to provide these three function :
 
 
-let g:visualHtml#Launch1Browser = 'MyLaunchFunction'
-function MyLaunchFunction(url)
+    let g:visualHtml#Launch1Browser = 'MyLaunchFunction'
+    function MyLaunchFunction(url)
 
    The Launch1Browser should open a browser with the given url.
    Note: in the current version, it is not directely called by the script.
@@ -142,8 +140,8 @@ function MyLaunchFunction(url)
 
 
 
-let g:visualHtml#Refresh1Browser = 'MyLaunchFunction'
-function MyLaunchFunction(url)
+    let g:visualHtml#Refresh1Browser = 'MyLaunchFunction'
+    function MyLaunchFunction(url)
 
    The Refresh1Browser function is called each time the buffer is modified
    according to refresh policy (see |g:visualHtml#active| and
@@ -152,8 +150,8 @@ function MyLaunchFunction(url)
 
 
 
-let g:visualHtml#Exit1Browser = 'MyLaunchFunction'
-function MyLaunchFunction(url)
+    let g:visualHtml#Exit1Browser = 'MyLaunchFunction'
+    function MyLaunchFunction(url)
 
    The Exit1Browser is called if the |g:visualHtml#active| is one when the
    buffer is deleted (so when Vim exit too) and should close the
