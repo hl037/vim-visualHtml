@@ -1,7 +1,9 @@
 "css ftplugin
 "------------
 
-call visualHtml#SetupBuffer()
+if visualHtml#SetupBuffer()
+   finish
+endif
 
 let previewpath = expand('%:p').'.preview'
 if filereadable(previewpath)

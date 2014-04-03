@@ -29,7 +29,7 @@ Table of content :
 
 This plugin provide a live preview of PHP/HTML and CSS edition, supporting
 local server for php files. For a better experience, you could use the
-open source CLCBrowser (Command Line Controlled web Browser) witch has been
+open source CLCBrowser (Command Line Controlled web Browser) which has been
 developped specially for this plugin.
 
 
@@ -52,6 +52,14 @@ There are some settings to customize the behavior.
 
 General settings
 ----------------
+
+*visualHtml#ftblacklist*
+let g:visualHtml#ftblacklist = ["markdown"]
+
+   There are some ftplugins that load html ftplugin and open the browser of
+   visualHtml for irrevelant files (like markdown...). Thus, this variable
+   provide a way to blacklist some file types for which visualHtml will not be
+   activated.
 
 *visualHtml#SetActive()*                  visualHtml#SetActive(b)
 *visualHtml#ToggleActive()*               visualHtml#ToggleActive()
@@ -151,7 +159,7 @@ function MyLaunchFunction(url)
 
    The Refresh1Browser function is called each time the buffer is modified
    according to refresh policy (see |g:visualHtml#active| and
-   |g:visualHtml#live|). It takes one argument a:url witch is the url to
+   |g:visualHtml#live|). It takes one argument a:url which is the url to
    refresh.
 
 
@@ -162,7 +170,7 @@ function MyLaunchFunction(url)
    The Exit1Browser is called if the |g:visualHtml#active| is one when the
    buffer is deleted (so when Vim exit too) and should close the
    correspounding url.
-   Note : A function witch does nothing is acceptable, but as a result, the
+   Note : A function which does nothing is acceptable, but as a result, the
    browser doesn't exit... (as it is for the default ff implementation)
 
 

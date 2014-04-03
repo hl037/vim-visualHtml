@@ -33,6 +33,13 @@ endfunction
 
 
 function! visualHtml#SetupBuffer()
+   let ftlist = split( &l:ft, '\.')
+   for it in ftlist
+      if index(g:visualHtml#ftblacklist, it) >= 0
+         return 1
+      endif
+   endfor
+
    let b:visualHtml = {}
    let b:visualHtml.Launch1Browser = function(
       \ exists('g:visualHtml#Launch1Browser') ?
@@ -54,6 +61,7 @@ function! visualHtml#SetupBuffer()
    
    let b:visualHtml.clcb = {}
    let b:visualHtml.clcb.geometry = g:visualHtml#clcb#geometry
+   return 0
 endfunction
 
 function! visualHtml#Start()
@@ -103,6 +111,7 @@ endfunction
 
 
 let s:settings = {
+   \ 'ftblacklist' : "['markdown']",
    \ 'active' : 1,
    \ 'live' : 1,
    \ 'browser': "'clcb'",
