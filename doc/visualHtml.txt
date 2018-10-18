@@ -125,7 +125,7 @@ CLCBrowser settings
 FireFox settings
 ----------------
 
- *visualHtml#clcb#exe*
+ *visualHtml#ff#exe*
  let g:visualHtml#ff#exe = "firefox"
 
    Set the command to launch firefox. This permits a local installation of
